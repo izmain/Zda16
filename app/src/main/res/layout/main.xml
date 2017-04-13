@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:gravity="center">
+
+	<LinearLayout
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"
+			android:orientation="horizontal"
+			android:layout_weight="1">
+
+			<LinearLayout
+				android:layout_height="match_parent"
+				android:layout_width="wrap_content"
+				android:orientation="vertical"
+				android:layout_weight="1.0"
+				android:gravity="center_horizontal">
+
+				<Button
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="get time"
+					android:onClick="onclGetTime"/>
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="check time"
+					android:onClick="onclCheckTime"/>
+
+				<Button
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="list"
+					android:onClick="clcViewList"
+					android:layout_marginTop="20dp"/>
+
+				<Button
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="reed time"
+					android:onClick="clcReed"/>
+
+				<Button
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="save time"
+					android:onClick="onclSaveTime"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_height="match_parent"
+				android:layout_width="wrap_content"
+				android:orientation="vertical"
+				android:layout_weight="1.0"
+				android:gravity="center_horizontal">
+
+				<EditText
+					android:layout_height="wrap_content"
+					android:inputType="number"
+					android:layout_width="wrap_content"
+					android:ems="2"
+					android:id="@+id/mainEditHore"/>
+
+				<EditText
+					android:layout_height="wrap_content"
+					android:inputType="number"
+					android:layout_width="wrap_content"
+					android:ems="2"
+					android:layout_marginBottom="40dp"
+					android:id="@+id/mainEditMin"/>
+
+				<EditText
+					android:layout_height="wrap_content"
+					android:inputType="number"
+					android:layout_width="wrap_content"
+					android:ems="2"
+					android:id="@+id/mainEditDay"/>
+
+				<EditText
+					android:layout_height="wrap_content"
+					android:inputType="number"
+					android:layout_width="wrap_content"
+					android:ems="2"
+					android:id="@+id/mainEditMonth"/>
+
+				<EditText
+					android:layout_height="wrap_content"
+					android:inputType="number"
+					android:layout_width="wrap_content"
+					android:ems="2"
+					android:id="@+id/mainEditYear"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:orientation="vertical"
+				android:layout_weight="1.0">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:layout_width="wrap_content"
+					android:text="hor"
+					android:layout_weight="1.0"
+					android:layout_marginTop="20dp"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:layout_width="wrap_content"
+					android:text="min"
+					android:layout_marginBottom="40dp"
+					android:layout_marginTop="20dp"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:layout_width="wrap_content"
+					android:text="day"
+					android:layout_marginTop="35dp"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:layout_width="wrap_content"
+					android:text="mont"
+					android:layout_marginTop="20dp"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:layout_width="wrap_content"
+					android:text="year"
+					android:layout_marginTop="20dp"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="debug console"
+			android:layout_weight="0"
+			android:id="@+id/mainDebugConsole"
+			android:minEms="1"
+			android:singleLine="false"
+			android:minLines="10"/>
+
+	</LinearLayout>
+
+</LinearLayout>
+
