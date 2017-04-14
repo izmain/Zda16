@@ -44,8 +44,8 @@
 		<Button
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
-			android:text="save"
-			android:id="@+id/bt_save"/>
+			android:text="clear"
+			android:id="@+id/bt_clr"/>
 
 	</LinearLayout>
 

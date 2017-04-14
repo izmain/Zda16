@@ -5,20 +5,22 @@ import android.app.*;
 import android.content.*;
 import android.database.sqlite.*;
 import android.os.*;
-import android.widget.*;
-import java.util.*;
-import android.view.View.*;
-import android.view.*;
 import android.util.*;
+import android.view.*;
+import android.view.View.*;
+import android.widget.*;
+import com.den.zda.*;
+import java.util.*;
+import android.widget.AdapterView.*;
 
-public class ListOperation extends Activity implements OnClickListener
+public class ListOperation extends Activity implements OnClickListener 
 {
 
 	
 	
 	EditText etOfList;
 	ListView lvTime;
-	Button btAdd,btDel,btChang,btSave;
+	Button btAdd,btDel,btChang,btClr;
 	
 	DBhelper dbHelp;
 	
@@ -34,19 +36,26 @@ public class ListOperation extends Activity implements OnClickListener
         setContentView(R.layout.listop);
 		etOfList=(EditText) findViewById(R.id.etOfList);
 		lvTime=(ListView) findViewById(R.id.lvTime);
+		ArrayAdapter<String> timeAdapt= new ArrayAdapter<String>(this,R.layout.my_item,timeList);
+		lvTime.setAdapter(timeAdapt);	
+		lvTime.setOnItemClickListener(new OnItemClickListener(){
+				@Override
+				public void onItemClick(AdapterView<?> p1, View p2, int i, long p4)
+				{etOfList.setText(timeList.get(i));}});
+		btAdd=(Button) findViewById(R.id.bt_add);
+		btAdd.setOnClickListener(this);
+		btDel=(Button) findViewById(R.id.bt_del);
 		initz();
-		// 
+		
 	}
 
 	private void initz()
 	{
-		// TODO: Implement this method
+		dbHelp= new DBhelper(this);
 		itemTimeOfTask=getSharedPreferences("fileSetting" ,Activity.MODE_PRIVATE);
 		Intent intnTemp=getIntent();
 		etOfList.setText(intnTemp.getStringExtra("time"));
 		loadTimeSheets();
-		ArrayAdapter<String> timeAdapt= new ArrayAdapter<String>(this,R.layout.my_item,timeList);
-		lvTime.setAdapter(timeAdapt);
 		
 	}
 	
@@ -57,17 +66,24 @@ public class ListOperation extends Activity implements OnClickListener
 	@Override
 	public void onClick(View v)
 	{
+		Toast.makeText(this,"нажoли шоле",Toast.LENGTH_SHORT);
 		ContentValues cv= new ContentValues();
 		SQLiteDatabase db= dbHelp.getWritableDatabase();
 		
 		switch( v.getId()){
+			
+			
+				
 			case R.id.bt_add:
 				{
 					cv.put("name",etOfList.getText().toString());
-					
+					db.insert("taskDB",null,cv);
 				}
+				break;
+			case R.id.bt_cheng:
+			{}
 		}
-		// TODO: Implement this method
+		db.close();
 	}
 	
 	//-------------------------------
@@ -148,16 +164,12 @@ public class ListOperation extends Activity implements OnClickListener
 		{
 			//SQLiteDatabase db=DBhelper.getWritableDatabase();
 			Log.d("mzda","creat db");
-			db.execSQL("");
-			
-			// TODO: Implement this method
+			db.execSQL("create table taskDB(id integer primary key,name text) ");		
 		}
 
 		@Override
 		public void onUpgrade(SQLiteDatabase p1, int p2, int p3)
-		{
-			// TODO: Implement this method
-		}
+		{}
 
 	}
 
